@@ -1,340 +1,458 @@
 /* -----------------------------------------------
-   TEMA: OLD METAL COMMANDER (Limpio, Sticky & Widget Pro)
-   ----------------------------------------------- */
-
-html {
-  background: #000 url('https://i.ibb.co/Fk8Yc3hR/Wall.jpg') no-repeat center center fixed !important;
-  background-size: cover !important;
-  width: 100%;
-  min-height: 100vh;
-}
-
-body {
-  background: transparent !important;
-  color: #d0d0d0;
-  font-family: 'Spectral', serif;
-  font-size: 17px;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
-/* ESTILOS COMUNES */
-a { color: #a00000; text-decoration: none; transition: 0.3s; }
-a:hover { color: #ff3333; text-shadow: 0 0 10px #f00; }
-img { max-width: 100%; height: auto; border: 0; }
-
-/* CONTENEDOR PRINCIPAL */
-.content-outer {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* HEADER */
-.header-outer {
-  background: transparent !important;
-  margin-bottom: 40px;
-  text-align: center;
-  padding: 30px 0;
-  overflow: visible;
-}
-
-#header-inner {
-  display: inline-block;
-  position: relative;
-  max-width: 100%;
-}
-
-#header-inner img {
-  border: none !important;
-  outline: 3px solid #400000;
-  outline-offset: 6px;
-  box-shadow: 
-      inset 0 0 40px rgba(0,0,0,0.95),
-      0 20px 50px rgba(0, 0, 0, 1),
-      0 0 30px rgba(139, 0, 0, 0.4);
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
-  animation: fadeInDown 0.8s ease-out;
-  display: block;
-  max-width: 96%;
-  margin: 0 auto;
-  height: auto;
-}
-
-#header-inner a:hover img {
-  outline-color: #ff0000 !important;
-  outline-offset: 2px;
-  box-shadow: 
-      inset 0 0 20px rgba(0,0,0,0.8),
-      0 25px 60px rgba(0, 0, 0, 1),
-      0 0 50px rgba(255, 0, 0, 0.7);
-}
-
-/* --- MENÚ STICKY (MEJORADO) --- */
-.menu-ancient-wrapper {
-  background-color: rgba(10,10,10,0.98) !important; /* Más opaco para que no moleste el texto de fondo */
-  border-top: 3px solid #8b0000;
-  border-bottom: 3px solid #8b0000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding: 15px 0;
+       TEMA: OLD METAL COMMANDER (Limpio & Sin Footer)
+       ----------------------------------------------- */
+    
+  html {
+    background: #000 url('https://i.ibb.co/Fk8Yc3hR/Wall.jpg') no-repeat center center fixed !important;
+    background-size: cover !important;
+    width: 100%;
+    min-height: 100vh;
+  }
   
-  /* MARGEN AUMENTADO PARA SEPARAR DEL WIDGET/CARRUSEL */
-  margin-bottom: 60px; 
+  body {
+    background: transparent !important;
+    color: #d0d0d0;
+    font-family: 'Spectral', serif;
+    font-size: 17px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evita scroll horizontal indeseado en móvil */
+  }
+
+  /* ESTILOS COMUNES */
+  a { color: #a00000; text-decoration: none; transition: 0.3s; }
+  a:hover { color: #ff3333; text-shadow: 0 0 10px #f00; }
+  img { max-width: 100%; height: auto; border: 0; }
+
+  /* CONTENEDOR PRINCIPAL */
+  .content-outer {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box; /* Importante para responsivo */
+  }
+
+  /* HEADER - REDISEÑO DEL BORDE (Estilo Marco de Metal) */
+  .header-outer {
+    background: transparent !important;
+    margin-bottom: 40px;
+    text-align: center;
+    padding: 30px 0; /* Un poco más de espacio para el nuevo marco */
+    overflow: visible; /* Necesario para que se vea el outline exterior */
+  }
+
+  #header-inner {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+  }
+
+  #header-inner img {
+    border: none !important; /* Quitamos el borde viejo */
+    /* NUEVO DISEÑO DE MARCO: Outline desplazado + Sombras complejas */
+    outline: 3px solid #400000; /* Marco exterior rojo muy oscuro */
+    outline-offset: 6px; /* Separado de la imagen */
+    
+    /* Sombra interna fuerte para oscurecer bordes + Sombra externa negra + Resplandor rojo sutil */
+    box-shadow: 
+        inset 0 0 40px rgba(0,0,0,0.95),
+        0 20px 50px rgba(0, 0, 0, 1),
+        0 0 30px rgba(139, 0, 0, 0.4);
+
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1); /* Transición suave y dramática */
+    animation: fadeInDown 0.8s ease-out;
+    display: block;
+    max-width: 96%; /* Ligeramente reducido para dar espacio al marco externo */
+    margin: 0 auto;
+    height: auto;
+  }
   
-  box-shadow: 0 10px 30px rgba(0,0,0,0.9);
-  backdrop-filter: blur(5px);
-  
-  /* PROPIEDADES STICKY ACTIVADAS */
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  z-index: 99999; /* Muy alto para estar siempre encima */
-  width: 100%;
-}
+  #header-inner a:hover img {
+    outline-color: #ff0000 !important; /* Marco se vuelve rojo brillante */
+    outline-offset: 2px; /* El marco se contrae hacia la imagen */
+    /* Aumenta drásticamente el resplandor rojo y la sombra */
+    box-shadow: 
+        inset 0 0 20px rgba(0,0,0,0.8),
+        0 25px 60px rgba(0, 0, 0, 1),
+        0 0 50px rgba(255, 0, 0, 0.7);
+  }
 
-.menu-gif {
-  width: 60px !important;
-  height: 60px !important;
-  border-radius: 50% !important;
-  border: 2px solid #550000 !important;
-  margin: 0 15px;
-  object-fit: cover;
-}
+  /* MENÚ - STICKY (Sigue al usuario) */
+  .menu-ancient-wrapper {
+    background-color: rgba(10,10,10,0.95) !important;
+    border-top: 3px solid #8b0000;
+    border-bottom: 3px solid #8b0000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 15px 0;
+    margin-bottom: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    
+    /* PROPIEDADES STICKY */
+    position: sticky;
+    top: 0;
+    z-index: 9999; /* Para que quede por encima de todo */
+  }
 
-.menu-btn-ancient {
-  font-family: 'UnifrakturMaguntia', cursive;
-  color: #ccc !important;
-  font-size: 32px; 
-  padding: 10px 40px;
-  position: relative;
-  text-shadow: 3px 3px 0 #000;
-  white-space: nowrap;
-}
-.menu-btn-ancient:hover { color: #ff0000 !important; transform: translateY(-3px); text-shadow: 0 0 15px #f00; }
-.menu-btn-ancient::after {
-  content: '\2020'; color: #8b0000; position: absolute; right: -20px; top: 50%;
-  transform: translateY(-50%); font-size: 24px; pointer-events: none;
-}
-.menu-btn-ancient:last-child::after { display: none; }
+  .menu-gif {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 50% !important;
+    border: 2px solid #550000 !important;
+    margin: 0 15px;
+    object-fit: cover;
+  }
 
-/* ESTRUCTURA COLUMNAS */
-.main-wrapper { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
-.sidebar-left { width: 20%; flex-shrink: 0; z-index: 5; }
-.main-column { width: 50%; flex-grow: 1; z-index: 1; }
-.sidebar-right { width: 23%; flex-shrink: 0; z-index: 5; }
+  .menu-btn-ancient {
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #ccc !important;
+    font-size: 32px; 
+    padding: 10px 40px;
+    position: relative;
+    text-shadow: 3px 3px 0 #000;
+    white-space: nowrap;
+  }
+  .menu-btn-ancient:hover { color: #ff0000 !important; transform: translateY(-3px); text-shadow: 0 0 15px #f00; }
+  .menu-btn-ancient::after {
+    content: '\2020'; color: #8b0000; position: absolute; right: -20px; top: 50%;
+    transform: translateY(-50%); font-size: 24px; pointer-events: none;
+  }
+  .menu-btn-ancient:last-child::after { display: none; }
 
-/* --- WIDGETS DISEÑO PREMIUM --- */
-.widget {
-  /* Fondo degradado sutil */
-  background: linear-gradient(to bottom, rgba(8,8,8,0.95), rgba(20,5,5,0.95)) !important;
-  
-  /* Doble borde estilo marco */
-  border: 1px solid #500000; 
-  outline: 2px solid #330000;
-  outline-offset: 4px; /* Crea el espacio entre bordes */
-  
-  margin: 10px 0 45px 0; /* Margen corregido */
-  padding: 30px 25px; /* Más padding */
-  
-  /* Sombra interna y externa */
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 25px rgba(0,0,0,0.8);
-  
-  transition: all 0.3s ease;
-  overflow: visible !important; /* Permitir que el outline se vea */
-  box-sizing: border-box;
-}
+  /* ESTRUCTURA COLUMNAS */
+  .main-wrapper { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
+  .sidebar-left { width: 20%; flex-shrink: 0; z-index: 5; }
+  .main-column { width: 50%; flex-grow: 1; z-index: 1; }
+  .sidebar-right { width: 23%; flex-shrink: 0; z-index: 5; }
 
-.widget:hover {
-  border-color: #ff0000;
-  outline-color: #8b0000;
-  box-shadow: inset 0 0 10px rgba(50,0,0,0.5), 0 0 25px rgba(255,0,0,0.2);
-  transform: translateY(-2px);
-}
+  /* WIDGETS GENÉRICOS */
+  .widget {
+    background: rgba(5,5,5,0.92) !important;
+    border: 2px solid #700000;
+    margin-bottom: 35px;
+    padding: 25px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.9);
+    transition: 0.3s;
+    overflow: hidden !important; /* Previene desbordes */
+    box-sizing: border-box;
+  }
+  .widget:hover { border-color: #ff0000; box-shadow: 0 0 20px rgba(255,0,0,0.3); }
 
-.widget h2 {
-  font-family: 'UnifrakturMaguntia', cursive;
-  color: #e0e0e0; font-size: 38px; text-align: center;
-  border-bottom: 2px solid #8b0000; margin-bottom: 25px;
-  text-shadow: 3px 3px 5px #000;
-  word-wrap: break-word;
-  padding-bottom: 10px;
-}
+  .widget h2 {
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #e0e0e0; font-size: 38px; text-align: center;
+    border-bottom: 2px solid #8b0000; margin-bottom: 25px;
+    text-shadow: 3px 3px 5px #000;
+    word-wrap: break-word;
+  }
 
-.widget ul { list-style: none; padding: 0; margin: 0; }
-.widget li { 
-  border-bottom: 1px dashed #333; padding: 8px 0 8px 25px; 
-  font-size: 17px; position: relative; transition: 0.2s;
-}
-.widget li:hover { transform: translateX(5px); background: linear-gradient(90deg, #220000, transparent); }
-.widget li::before { content: '\2022'; color: #8b0000; position: absolute; left: 0; top: 11px; font-size: 20px; }
-.widget li a { color: #bbb; display: block; }
-.widget li a:hover { color: #fff; text-shadow: 0 0 5px #f00; }
+  .widget ul { list-style: none; padding: 0; margin: 0; }
+  .widget li { 
+    border-bottom: 1px dashed #333; padding: 8px 0 8px 25px; 
+    font-size: 17px; position: relative; transition: 0.2s;
+  }
+  .widget li:hover { transform: translateX(5px); background: linear-gradient(90deg, #220000, transparent); }
+  .widget li::before { content: '\2022'; color: #8b0000; position: absolute; left: 0; top: 11px; font-size: 20px; }
+  .widget li a { color: #bbb; display: block; }
+  .widget li a:hover { color: #fff; }
+    
+  /* OCULTAR CONTADORES DE BLOGGER */
+  .widget li span { display: none !important; }
 
-/* OCULTAR CONTADORES DE BLOGGER */
-.widget li span { display: none !important; }
+  /* BUSCADOR */
+  .search-container { position: relative; z-index: 100; }
+  .search-container form { display: flex; } /* Flex para alinear */
+  .search-container input {
+    width: 65%; background: #000; border: 1px solid #500; color: #fff;
+    padding: 10px; font-family: 'Spectral', serif;
+    min-width: 0; /* Fix flexbox input size */
+  }
+  .search-container button {
+    width: 35%; background: #700; border: 1px solid #500; color: #fff;
+    font-family: 'UnifrakturMaguntia', cursive; cursor: pointer; padding: 10px;
+  }
+    
+  /* SUGERENCIAS FLOTANTES */
+  #search-suggestions {
+    position: absolute !important;
+    background: #000 !important;
+    border: 2px solid #ff0000;
+    z-index: 9999999 !important;
+    width: 300px;
+    max-height: 400px;
+    overflow-y: auto;
+    display: none;
+    box-shadow: 0 10px 50px #000;
+  }
+  .search-suggestion-item {
+    padding: 10px; border-bottom: 1px solid #333; color: #ddd; cursor: pointer;
+    background: #050505; transition: 0.2s;
+  }
+  .search-suggestion-item:hover { background: #500; color: #fff; padding-left: 15px; }
 
-/* BUSCADOR */
-.search-container { position: relative; z-index: 100; }
-.search-container form { display: flex; }
-.search-container input {
-  width: 65%; background: #000; border: 1px solid #500; color: #fff;
-  padding: 10px; font-family: 'Spectral', serif;
-  min-width: 0; 
-}
-.search-container button {
-  width: 35%; background: #700; border: 1px solid #500; color: #fff;
-  font-family: 'UnifrakturMaguntia', cursive; cursor: pointer; padding: 10px;
-}
+  /* POSTS */
+  .post {
+    background: rgba(10,10,10,0.95); border: 2px solid #8b0000;
+    padding: 30px; margin-bottom: 50px; box-shadow: 0 0 40px #000;
+    box-sizing: border-box;
+  }
+  h3.post-title {
+    font-family: 'UnifrakturMaguntia', cursive; font-size: 48px;
+    text-align: center; border-bottom: 3px solid #8b0000; margin-bottom: 25px;
+    word-wrap: break-word;
+  }
+  .post-body img { border: 3px solid #8b0000; margin: 20px auto; display: block; max-width: 100%; height: auto; }
+  .post-footer { text-align: right; margin-top: 30px; color: #777; font-family: 'UnifrakturMaguntia', cursive; }
 
-/* SUGERENCIAS FLOTANTES */
-#search-suggestions {
-  position: absolute !important;
-  background: #000 !important;
-  border: 2px solid #ff0000;
-  z-index: 9999999 !important;
-  width: 300px;
-  max-height: 400px;
-  overflow-y: auto;
-  display: none;
-  box-shadow: 0 10px 50px #000;
-}
-.search-suggestion-item {
-  padding: 10px; border-bottom: 1px solid #333; color: #ddd; cursor: pointer;
-  background: #050505; transition: 0.2s;
-}
-.search-suggestion-item:hover { background: #500; color: #fff; padding-left: 15px; }
+  /* COMENTARIOS & FORMULARIO */
+  .custom-comments { margin-top: 40px; border-top: 2px solid #8b0000; padding-top: 20px; }
+  .custom-comments h4 { font-family: 'UnifrakturMaguntia', cursive; font-size: 30px; text-align: center; color: #ddd; }
+    
+  .comment-item {
+    background: rgba(20,20,20,0.8); border: 1px solid #333;
+    margin-bottom: 15px; padding: 15px; border-left: 3px solid #500;
+    word-wrap: break-word;
+  }
+  .comment-author { color: #d00; font-weight: bold; font-family: 'UnifrakturMaguntia', cursive; font-size: 18px; }
+  .comment-date { font-size: 12px; color: #555; }
+    
+  .comment-form-custom { background: rgba(0,0,0,0.8); padding: 20px; border: 1px solid #500; }
+  .comment-form-custom input, .comment-form-custom textarea {
+    width: 100%; background: #111; border: 1px solid #444; color: #fff;
+    padding: 10px; margin-bottom: 10px; box-sizing: border-box;
+  }
+  .comment-form-custom button {
+    background: #700; color: #fff; border: none; padding: 10px 20px;
+    font-family: 'UnifrakturMaguntia', cursive; font-size: 20px; cursor: pointer; width: 100%;
+  }
+  .comment-form-custom button:hover { background: #a00; }
 
-/* POSTS */
-.post {
-  background: rgba(10,10,10,0.95); border: 2px solid #8b0000;
-  padding: 30px; margin-bottom: 50px; box-shadow: 0 0 40px #000;
-  box-sizing: border-box;
-}
-h3.post-title {
-  font-family: 'UnifrakturMaguntia', cursive; font-size: 48px;
-  text-align: center; border-bottom: 3px solid #8b0000; margin-bottom: 25px;
-  word-wrap: break-word;
-}
-.post-body img { border: 3px solid #8b0000; margin: 20px auto; display: block; max-width: 100%; height: auto; }
-.post-footer { text-align: right; margin-top: 30px; color: #777; font-family: 'UnifrakturMaguntia', cursive; }
+  /* ADMIN PANEL CSS */
+  #admin-comments-panel {
+    background-color: #050505 !important;
+    border-left: 4px solid #8b0000;
+    box-shadow: -10px 0 50px #000;
+    font-family: 'Spectral', serif;
+  }
+  .admin-header {
+    background: linear-gradient(to bottom, #500000, #200000);
+    padding: 15px; text-align: center; border-bottom: 2px solid #ff0000;
+    margin-bottom: 20px;
+  }
+  .admin-header h2 {
+    font-family: 'UnifrakturMaguntia', cursive; color: #fff; margin: 0; font-size: 28px; text-shadow: 0 0 10px #000;
+  }
+  .admin-stats {
+    background: #111; padding: 10px; margin-bottom: 15px; border: 1px solid #333; color: #aaa; font-size: 14px;
+  }
+  .admin-comment-card {
+    background: #0e0e0e; border: 1px solid #333; margin-bottom: 15px; padding: 15px;
+    position: relative; transition: 0.2s;
+  }
+  .admin-comment-card:hover { border-color: #555; }
+  .admin-comment-card.status-pendiente { border-left: 4px solid #ffaa00; }
+  .admin-comment-card.status-aprobado { border-left: 4px solid #00ff00; }
+  .admin-comment-card.status-rechazado { border-left: 4px solid #ff0000; opacity: 0.6; }
+    
+  .admin-card-header { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #222; padding-bottom: 5px; }
+  .admin-author { font-weight: bold; color: #d0d0d0; }
+  .admin-email { font-size: 12px; color: #666; display: block; }
+  .admin-date { font-size: 11px; color: #555; }
+  .admin-body { font-size: 14px; color: #ccc; margin-bottom: 10px; white-space: pre-wrap; }
+  .admin-actions { display: flex; gap: 5px; flex-wrap:wrap; }
+    
+  .btn-admin {
+    flex: 1; border: none; padding: 5px; font-size: 12px; cursor: pointer; color: #fff; font-weight: bold; text-transform: uppercase;
+  }
+  .btn-approve { background: #006400; } .btn-approve:hover { background: #008000; }
+  .btn-reject { background: #640000; } .btn-reject:hover { background: #800000; }
+  .btn-delete { background: #333; } .btn-delete:hover { background: #555; }
+    
+  .btn-view { background: #004488; text-decoration: none; text-align: center; display: block; line-height: 24px; color:#fff !important; }
+  .btn-view:hover { background: #0066cc; color: #fff !important; }
 
-/* COMENTARIOS & FORMULARIO */
-.custom-comments { margin-top: 40px; border-top: 2px solid #8b0000; padding-top: 20px; }
-.custom-comments h4 { font-family: 'UnifrakturMaguntia', cursive; font-size: 30px; text-align: center; color: #ddd; }
-
-.comment-item {
-  background: rgba(20,20,20,0.8); border: 1px solid #333;
-  margin-bottom: 15px; padding: 15px; border-left: 3px solid #500;
-  word-wrap: break-word;
-}
-.comment-author { color: #d00; font-weight: bold; font-family: 'UnifrakturMaguntia', cursive; font-size: 18px; }
-.comment-date { font-size: 12px; color: #555; }
-
-.comment-form-custom { background: rgba(0,0,0,0.8); padding: 20px; border: 1px solid #500; }
-.comment-form-custom input, .comment-form-custom textarea {
-  width: 100%; background: #111; border: 1px solid #444; color: #fff;
-  padding: 10px; margin-bottom: 10px; box-sizing: border-box;
-}
-.comment-form-custom button {
-  background: #700; color: #fff; border: none; padding: 10px 20px;
-  font-family: 'UnifrakturMaguntia', cursive; font-size: 20px; cursor: pointer; width: 100%;
-}
-.comment-form-custom button:hover { background: #a00; }
-
-/* NOTIFICACIÓN FLOTANTE */
-#notificacion-aviso {
-  position: fixed;
-  bottom: 20px;
-  right: -450px;
-  width: 320px;
-  background: rgba(5, 5, 5, 0.98);
-  border: 2px solid #8b0000;
-  border-left-width: 6px;
-  color: #d0d0d0;
-  padding: 15px 20px;
-  z-index: 10000;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.9);
-  font-family: 'Spectral', serif;
-  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-#notificacion-aviso.show { right: 20px; }
-#notificacion-aviso h4 {
-  font-family: 'UnifrakturMaguntia', cursive;
-  color: #ff0000; margin: 0 0 8px 0; font-size: 24px; border-bottom: 1px solid #400;
-}
-#notificacion-aviso .btn-cerrar-notif { position: absolute; top: 8px; right: 12px; cursor: pointer; color: #555; }
-#link-notificacion { color: #ff3333 !important; font-family: 'UnifrakturMaguntia', cursive; font-size: 18px; text-decoration: none; display: block; margin-top: 10px; }
+  /* NOTIFICACIÓN FLOTANTE */
+  #notificacion-aviso {
+    position: fixed;
+    bottom: 20px;
+    right: -450px;
+    width: 320px;
+    background: rgba(5, 5, 5, 0.98);
+    border: 2px solid #8b0000;
+    border-left-width: 6px;
+    color: #d0d0d0;
+    padding: 15px 20px;
+    z-index: 10000;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.9);
+    font-family: 'Spectral', serif;
+    transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  #notificacion-aviso.show { right: 20px; }
+  #notificacion-aviso h4 {
+    font-family: 'UnifrakturMaguntia', cursive;
+    color: #ff0000; margin: 0 0 8px 0; font-size: 24px; border-bottom: 1px solid #400;
+  }
+  #notificacion-aviso .btn-cerrar-notif { position: absolute; top: 8px; right: 12px; cursor: pointer; color: #555; }
+  #link-notificacion { color: #ff3333 !important; font-family: 'UnifrakturMaguntia', cursive; font-size: 18px; text-decoration: none; display: block; margin-top: 10px; }
 
 
-/* --- MARQUEE CSS --- */
+/* --- NUEVO SLIDER MARQUEE CSS --- */
 #marquee-container {
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-  max-width: 1400px;
-  margin: 0 auto 50px auto; /* Más margen abajo */
-  border-top: 2px solid #8b0000;
-  border-bottom: 2px solid #8b0000;
-  background: rgba(5,5,5,0.8);
-  padding: 10px 0;
-  box-shadow: 0 0 20px #000;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto 40px auto;
+    border-top: 2px solid #8b0000;
+    border-bottom: 2px solid #8b0000;
+    background: rgba(5,5,5,0.8);
+    padding: 10px 0;
+    box-shadow: 0 0 20px #000;
 }
-#marquee-container::before, #marquee-container::after {
-  content: ""; position: absolute; top: 0; width: 100px; height: 100%; z-index: 2; pointer-events: none;
+
+/* Efectos de desvanecimiento a los lados */
+#marquee-container::before,
+#marquee-container::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
 }
-#marquee-container::before { left: 0; background: linear-gradient(to right, rgba(0,0,0,0.9), transparent); }
-#marquee-container::after { right: 0; background: linear-gradient(to left, rgba(0,0,0,0.9), transparent); }
+#marquee-container::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0,0,0,0.9), transparent);
+}
+#marquee-container::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0,0,0,0.9), transparent);
+}
 
-.marquee-inner { display: flex; width: fit-content; animation: marqueeScroll linear infinite; }
-.marquee-content { display: flex; flex-shrink: 0; }
+.marquee-inner {
+    display: flex;
+    width: fit-content;
+    /* La animación se define en el JS para calcular duración exacta */
+    animation: marqueeScroll linear infinite;
+}
 
+/* El contenedor interno que se duplica */
+.marquee-content {
+    display: flex;
+    flex-shrink: 0; /* Evita que se encoja */
+}
+
+/* ESTILO CUADRADO EXACTO 250x250 */
 .slide-card {
-  position: relative; width: 250px; height: 250px; margin: 0 10px;
-  border: 1px solid #333; transition: transform 0.3s; background: #000;
-  overflow: hidden; flex-shrink: 0;
+    position: relative;
+    /* Ancho y Alto iguales para que sea cuadrado */
+    width: 250px; 
+    height: 250px; 
+    margin: 0 10px; /* Espacio entre tarjetas */
+    border: 1px solid #333;
+    transition: transform 0.3s; /* Transición suave */
+    background: #000;
+    overflow: hidden;
+    flex-shrink: 0;
 }
-.slide-card:hover { transform: scale(0.9); border-color: #f00; box-shadow: 0 0 15px #500; z-index: 10; }
-.slide-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; filter: grayscale(40%) contrast(1.2); }
-.slide-card:hover img { filter: grayscale(0%); }
-.slide-overlay {
-  position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.5); display: flex; align-items: center; justify-content: center;
-  opacity: 0; transition: opacity 0.3s; backdrop-filter: blur(2px);
-}
-.slide-card:hover .slide-overlay { opacity: 1; }
-.slide-title { color: #fff; font-family: 'UnifrakturMaguntia', cursive; text-align: center; font-size: 20px; padding: 10px; text-shadow: 2px 2px 4px #000; }
-@keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
-/* RESPONSIVO */
-@media (max-width: 1024px) {
-  .content-outer { padding: 15px; width: 98%; }
-  .sidebar-left, .sidebar-right { width: 30%; }
-  .main-column { width: 34%; }
+/* Efecto Hover: se encoge (scale-90) y brilla el borde */
+.slide-card:hover {
+    transform: scale(0.9); 
+    border-color: #f00;
+    box-shadow: 0 0 15px #500;
+    z-index: 10;
 }
-@media (max-width: 900px) {
-  .main-wrapper { flex-direction: column; gap: 20px; }
-  .sidebar-left, .main-column, .sidebar-right { width: 100% !important; margin-bottom: 20px; }
-  .main-column { order: 1; }
-  .sidebar-left { order: 2; }
-  .sidebar-right { order: 3; }
-  .menu-ancient-wrapper { flex-direction: column; gap: 5px; padding: 10px; position: relative; /* Sticky no suele usarse en movil por espacio */ }
-  .menu-gif { display: none; }
-  .menu-btn-ancient { width: 100%; text-align: center; border-bottom: 1px solid #330000; padding: 10px 0; font-size: 24px; }
-  .menu-btn-ancient::after { display: none; }
-  .slide-card { width: 180px; height: 180px; margin: 0 5px; }
-  #notificacion-aviso { width: 90%; right: -120%; bottom: 10px; left: 5%; }
-  #notificacion-aviso.show { right: auto; left: 5%; }
+
+.slide-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recorta para llenar el cuadrado perfecto */
+    transition: transform 0.4s;
+    filter: grayscale(40%) contrast(1.2);
 }
-@media (max-width: 600px) {
-  .content-outer { padding: 5px; }
-  .post { padding: 15px; }
-  .search-container input { width: 60%; }
-  .search-container button { width: 40%; }
+
+.slide-card:hover img {
+    filter: grayscale(0%);
 }
+
+/* Overlay con el título que aparece al hover */
+.slide-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(2px);
+}
+
+.slide-card:hover .slide-overlay {
+    opacity: 1; /* Aparece al pasar el mouse */
+}
+
+.slide-title {
+    color: #fff;
+    font-family: 'UnifrakturMaguntia', cursive;
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+    text-shadow: 2px 2px 4px #000;
+}
+
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Se mueve la mitad (el set original) */
+}
+
+
+  /* ======================================================
+   ZONA RESPONSIVA AVANZADA
+   ======================================================
+   */
+
+  /* Ajustes para Tablets */
+  @media (max-width: 1024px) {
+    .content-outer { padding: 15px; width: 98%; }
+    .sidebar-left, .sidebar-right { width: 30%; }
+    .main-column { width: 34%; }
+  }
+
+  /* Ajustes para Móviles */
+  @media (max-width: 900px) {
+    .main-wrapper { flex-direction: column; gap: 20px; }
+    .sidebar-left, .main-column, .sidebar-right { width: 100% !important; margin-bottom: 20px; }
+    .main-column { order: 1; }
+    .sidebar-left { order: 2; }
+    .sidebar-right { order: 3; }
+    .menu-ancient-wrapper { flex-direction: column; gap: 5px; padding: 10px; }
+    .menu-gif { display: none; }
+    .menu-btn-ancient { width: 100%; text-align: center; border-bottom: 1px solid #330000; padding: 10px 0; font-size: 24px; }
+    .menu-btn-ancient::after { display: none; }
+    h3.post-title { font-size: 32px; }
+    .widget h2 { font-size: 28px; }
+    
+    /* Ajuste Slider Móvil - También cuadrado pero más pequeño */
+    .slide-card { width: 180px; height: 180px; margin: 0 5px; }
+    
+    #notificacion-aviso { width: 90%; right: -120%; bottom: 10px; left: 5%; }
+    #notificacion-aviso.show { right: auto; left: 5%; }
+  }
+
+  @media (max-width: 600px) {
+    .content-outer { padding: 5px; }
+    .post { padding: 15px; }
+    .search-container input { width: 60%; }
+    .search-container button { width: 40%; }
+  }
