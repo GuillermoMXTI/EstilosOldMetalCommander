@@ -39,7 +39,7 @@
     background: transparent !important;
     margin-bottom: 40px;
     text-align: center;
-    padding: 30px 0; /* Un poco más de espacio para el nuevo marco */
+    padding: 10px 0; /* Un poco más de espacio para el nuevo marco */
     overflow: visible; /* Necesario para que se vea el outline exterior */
   }
 
