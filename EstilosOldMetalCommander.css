@@ -145,7 +145,7 @@
     box-shadow: 0 10px 50px #000;
   }
   .search-suggestion-item {
-    padding: 10px; border-bottom: 1px solid #333; color: #ddd; cursor: pointer;
+    padding: 5px; border-bottom: 1px solid #333; color: #ddd; cursor: pointer;
     background: #050505; transition: 0.2s;
   }
   .search-suggestion-item:hover { background: #500; color: #fff; padding-left: 15px; }
@@ -153,7 +153,7 @@
   /* POSTS */
   .post {
     background: rgba(10,10,10,0.95); border: 2px solid #8b0000;
-    padding: 20px; margin-bottom: 50px; box-shadow: 0 0 40px #000;
+    padding: 20px; margin-bottom: 30px; box-shadow: 0 0 20px #000;
     box-sizing: border-box;
   }
   h3.post-title {
