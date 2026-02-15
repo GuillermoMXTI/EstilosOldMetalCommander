@@ -28,7 +28,7 @@
 
   /* CONTENEDOR PRINCIPAL */
   .content-outer {
-    max-width: 1400px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 20px;
     box-sizing: border-box; /* Importante para responsivo */
@@ -37,7 +37,7 @@
   /* HEADER - REDISEÑO DEL BORDE (Estilo Marco de Metal) */
   .header-outer {
     background: transparent !important;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     text-align: center;
     padding: 10px 0; /* Un poco más de espacio para el nuevo marco */
     overflow: visible; /* Necesario para que se vea el outline exterior */
