@@ -1,5 +1,5 @@
 /* -----------------------------------------------
-       TEMA: OLD METAL COMMANDER (Limpio & Sin Footer)
+       TEMA: OLD METAL COMMANDER (Full Width & Gothic)
        ----------------------------------------------- */
     
   html {
@@ -18,7 +18,7 @@
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    overflow-x: hidden; /* Evita scroll horizontal indeseado en móvil */
+    overflow-x: hidden; /* VITAL: Evita el scroll horizontal por usar 100vw */
   }
 
   /* ESTILOS COMUNES */
@@ -31,15 +31,16 @@
     max-width: 1600px;
     margin: 0 auto;
     padding: 20px;
-    box-sizing: border-box; /* Importante para responsivo */
+    box-sizing: border-box; 
   }
 
- /* HEADER - REDISEÑO FULL WIDTH (Estilo Barra Infernal) */
+  /* ======================================================
+     HEADER - FULL WIDTH (De lado a lado)
+     ====================================================== */
   .header-outer {
-    /* Fondo sólido para separar del wallpaper de fondo */
-    background: #050505 !important; 
+    background: #050505 !important; /* Fondo sólido negro */
     
-    /* TÉCNICA PARA CUBRIR EL 100% DE LA PANTALLA */
+    /* TÉCNICA FULL WIDTH */
     width: 100vw;
     position: relative;
     left: 50%;
@@ -47,64 +48,50 @@
     margin-left: -50vw;
     margin-right: -50vw;
     
-    /* Espaciado y bordes */
-    padding: 30px 0; /* Espacio vertical para que la imagen respire */
-    margin-bottom: 40px; /* Separación con el resto del blog */
+    padding: 30px 0;
+    margin-bottom: 40px;
     text-align: center;
     
-    /* Bordes de sangre arriba y abajo */
+    /* Bordes y Sombras */
     border-top: 3px solid #8b0000;
     border-bottom: 3px solid #8b0000;
-    
-    /* Sombra potente para que parezca estar sobre el fondo */
     box-shadow: 0 10px 50px rgba(0,0,0,1);
     z-index: 10;
-    overflow: hidden; /* Evita scroll lateral */
   }
 
   #header-inner {
     display: inline-block;
     position: relative;
-    /* Controlamos que la imagen no se pegue a los bordes en pantallas gigantes */
-    max-width: 1200px; 
-    width: 90%;
+    max-width: 1200px; /* Limita la imagen para que no sea gigante */
+    width: 95%;
   }
 
   #header-inner img {
-    width: 100%; /* Ajuste fluido */
+    width: 100%;
     height: auto;
     border: none !important;
-    
-    /* MARCO DE METAL: Outline separado */
     outline: 2px solid #500000; 
     outline-offset: 8px;
-    
-    /* Sombras complejas para dar volumen */
     box-shadow: 
-        inset 0 0 50px rgba(0,0,0,0.9), /* Sombra interna */
-        0 0 30px rgba(0,0,0,1), /* Sombra negra pegada */
-        0 0 20px rgba(139, 0, 0, 0.3); /* Resplandor rojo leve */
-
+        inset 0 0 50px rgba(0,0,0,0.9),
+        0 0 30px rgba(0,0,0,1), 
+        0 0 20px rgba(139, 0, 0, 0.3);
     transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
     animation: fadeInDown 1s ease-out;
     display: block;
     margin: 0 auto;
   }
   
-  /* EFECTO AL PASAR EL MOUSE SOBRE EL HEADER */
   #header-inner a:hover img {
-    outline-color: #ff0000 !important; /* El marco se enciende */
-    outline-offset: 12px; /* El marco se expande */
-    transform: scale(1.02); /* Pequeño zoom */
-    
-    /* Explosión de luz roja */
+    outline-color: #ff0000 !important;
+    outline-offset: 12px;
+    transform: scale(1.02);
     box-shadow: 
         inset 0 0 30px rgba(0,0,0,0.8),
         0 20px 60px rgba(0,0,0,1),
         0 0 40px rgba(255, 0, 0, 0.6);
   }
 
-  /* Animación de entrada */
   @keyframes fadeInDown {
     from { opacity: 0; transform: translateY(-50px); }
     to { opacity: 1; transform: translateY(0); }
@@ -124,7 +111,7 @@
     padding: 25px;
     box-shadow: 0 0 25px rgba(0,0,0,0.9);
     transition: 0.3s;
-    overflow: hidden !important; /* Previene desbordes */
+    overflow: hidden !important;
     box-sizing: border-box;
   }
   .widget:hover { border-color: #ff0000; box-shadow: 0 0 20px rgba(255,0,0,0.3); }
@@ -146,17 +133,15 @@
   .widget li::before { content: '\2022'; color: #8b0000; position: absolute; left: 0; top: 11px; font-size: 20px; }
   .widget li a { color: #bbb; display: block; }
   .widget li a:hover { color: #fff; }
-    
-  /* OCULTAR CONTADORES DE BLOGGER */
   .widget li span { display: none !important; }
 
   /* BUSCADOR */
   .search-container { position: relative; z-index: 100; }
-  .search-container form { display: flex; } /* Flex para alinear */
+  .search-container form { display: flex; }
   .search-container input {
     width: 65%; background: #000; border: 1px solid #500; color: #fff;
     padding: 10px; font-family: 'Spectral', serif;
-    min-width: 0; /* Fix flexbox input size */
+    min-width: 0;
   }
   .search-container button {
     width: 35%; background: #700; border: 1px solid #500; color: #fff;
@@ -196,20 +181,30 @@
   .post-footer { text-align: right; margin-top: 30px; color: #777; font-family: 'UnifrakturMaguntia', cursive; }
 
 
-
-
-/* --- NUEVO SLIDER MARQUEE CSS --- */
+/* ======================================================
+   NUEVO SLIDER MARQUEE CSS - FULL WIDTH
+   ====================================================== */
 #marquee-container {
-    overflow: hidden;
-    width: 100%;
+    /* TÉCNICA FULL WIDTH */
+    width: 100vw;
     position: relative;
-    max-width: 1400px;
-    margin: 0 auto 40px auto;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    max-width: none !important; /* Quitamos límites */
+    
+    overflow: hidden;
+    margin-bottom: 40px;
+    
+    /* Bordes y Fondo a juego con el Header */
     border-top: 2px solid #8b0000;
     border-bottom: 2px solid #8b0000;
-    background: rgba(5,5,5,0.8);
-    padding: 10px 0;
-    box-shadow: 0 0 20px #000;
+    background: rgba(5,5,5,0.95); /* Fondo casi sólido */
+    
+    padding: 15px 0;
+    box-shadow: 0 0 25px #000;
+    z-index: 8;
 }
 
 /* Efectos de desvanecimiento a los lados */
@@ -218,48 +213,44 @@
     content: "";
     position: absolute;
     top: 0;
-    width: 100px;
+    width: 150px; /* Más ancho el fade para pantallas grandes */
     height: 100%;
     z-index: 2;
     pointer-events: none;
 }
 #marquee-container::before {
     left: 0;
-    background: linear-gradient(to right, rgba(0,0,0,0.9), transparent);
+    background: linear-gradient(to right, #050505, transparent);
 }
 #marquee-container::after {
     right: 0;
-    background: linear-gradient(to left, rgba(0,0,0,0.9), transparent);
+    background: linear-gradient(to left, #050505, transparent);
 }
 
 .marquee-inner {
     display: flex;
     width: fit-content;
-    /* La animación se define en el JS para calcular duración exacta */
     animation: marqueeScroll linear infinite;
 }
 
-/* El contenedor interno que se duplica */
 .marquee-content {
     display: flex;
-    flex-shrink: 0; /* Evita que se encoja */
+    flex-shrink: 0;
 }
 
 /* ESTILO CUADRADO EXACTO 250x250 */
 .slide-card {
     position: relative;
-    /* Ancho y Alto iguales para que sea cuadrado */
     width: 250px; 
     height: 250px; 
-    margin: 0 10px; /* Espacio entre tarjetas */
+    margin: 0 10px;
     border: 1px solid #333;
-    transition: transform 0.3s; /* Transición suave */
+    transition: transform 0.3s;
     background: #000;
     overflow: hidden;
     flex-shrink: 0;
 }
 
-/* Efecto Hover: se encoge (scale-90) y brilla el borde */
 .slide-card:hover {
     transform: scale(0.9); 
     border-color: #f00;
@@ -270,7 +261,7 @@
 .slide-card img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta para llenar el cuadrado perfecto */
+    object-fit: cover;
     transition: transform 0.4s;
     filter: grayscale(40%) contrast(1.2);
 }
@@ -279,24 +270,23 @@
     filter: grayscale(0%);
 }
 
-/* Overlay con el título que aparece al hover */
 .slide-overlay {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente oscuro */
+    background: rgba(0, 0, 0, 0.6);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: opacity 0.3s;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(3px);
 }
 
 .slide-card:hover .slide-overlay {
-    opacity: 1; /* Aparece al pasar el mouse */
+    opacity: 1;
 }
 
 .slide-title {
@@ -310,7 +300,7 @@
 
 @keyframes marqueeScroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); } /* Se mueve la mitad (el set original) */
+    100% { transform: translateX(-50%); }
 }
 
 
@@ -335,13 +325,17 @@
     .sidebar-right { order: 3; }
     .menu-ancient-wrapper { flex-direction: column; gap: 5px; padding: 10px; }
     .menu-gif { display: none; }
-    .menu-btn-ancient { width: 100%; text-align: center; border-bottom: 1px solid #330000; padding: 10px 0; font-size: 24px; }
-    .menu-btn-ancient::after { display: none; }
+    
+    /* Ajustes del Header Móvil */
+    .header-outer { padding: 15px 0; margin-bottom: 20px; }
+    #header-inner { width: 95%; }
+    
+    /* Ajuste Slider Móvil */
+    .slide-card { width: 150px; height: 150px; margin: 0 5px; }
+    #marquee-container::before, #marquee-container::after { width: 50px; }
+    
     h3.post-title { font-size: 32px; }
     .widget h2 { font-size: 28px; }
-    
-    /* Ajuste Slider Móvil - También cuadrado pero más pequeño */
-    .slide-card { width: 180px; height: 180px; margin: 0 5px; }
     
     #notificacion-aviso { width: 90%; right: -120%; bottom: 10px; left: 5%; }
     #notificacion-aviso.show { right: auto; left: 5%; }
