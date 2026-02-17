@@ -1,5 +1,5 @@
 /* -----------------------------------------------
-   TEMA: OLD METAL COMMANDER (Full Width Fix)
+   TEMA: OLD METAL COMMANDER (Full Width REAL Fix)
    ----------------------------------------------- */
 
 html {
@@ -18,7 +18,8 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  overflow-x: hidden !important; /* VITAL: Evita scroll lateral por el 100vw */
+  /* VITAL: Evita que el 100vw cree una barra de scroll horizontal */
+  overflow-x: hidden !important; 
 }
 
 /* ESTILOS COMUNES */
@@ -26,27 +27,29 @@ a { color: #a00000; text-decoration: none; transition: 0.3s; }
 a:hover { color: #ff3333; text-shadow: 0 0 10px #f00; }
 img { max-width: 100%; height: auto; border: 0; }
 
-/* CONTENEDOR PRINCIPAL */
+/* CONTENEDOR PRINCIPAL - ¡AQUÍ ESTABA EL BLOQUEO! */
 .content-outer {
   max-width: 1600px;
   margin: 0 auto;
-  /* Quitamos padding lateral aquí para que no interfiera con el full width */
-  padding: 0; 
+  padding: 0; /* Sin padding global */
   box-sizing: border-box;
+  /* CRÍTICO: Permite que header y slider se salgan del ancho máximo */
+  overflow: visible !important; 
 }
 
-/* Padding solo para el contenido interno */
+/* Padding solo para el contenido interno (columnas) */
 .main-wrapper { 
   padding: 0 20px; 
   display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;
+  position: relative; z-index: 5;
 }
 
 /* ======================================================
-   HEADER - FULL WIDTH REAL
+   HEADER - FULL WIDTH (De Borde a Borde)
    ====================================================== */
 
-/* 1. Resetear el Widget del Header para quitarle el borde gris/rojo por defecto */
-#Header1 {
+/* 1. Limpieza total del Widget del Header (Quita el marco no deseado) */
+#Header1, .header-widget {
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
@@ -58,17 +61,15 @@ img { max-width: 100%; height: auto; border: 0; }
 .header-outer {
   background: #050505 !important;
   
-  /* FUERZA BRUTA PARA ANCHO COMPLETO */
+  /* FÓRMULA MATEMÁTICA PARA FULL WIDTH */
   width: 100vw;
-  position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
   
   padding: 30px 0;
   margin-bottom: 40px;
   text-align: center;
+  position: relative;
   
   border-top: 3px solid #8b0000;
   border-bottom: 3px solid #8b0000;
@@ -87,6 +88,7 @@ img { max-width: 100%; height: auto; border: 0; }
   width: 100%;
   height: auto;
   border: none !important;
+  /* El marco de la imagen se mantiene */
   outline: 2px solid #500000; 
   outline-offset: 8px;
   box-shadow: 
@@ -115,19 +117,14 @@ img { max-width: 100%; height: auto; border: 0; }
 }
 
 /* ======================================================
-   SLIDER MARQUEE - FULL WIDTH REAL
+   SLIDER MARQUEE - FULL WIDTH (De Borde a Borde)
    ====================================================== */
 
-/* Reset para quitar el cuadro del widget que contiene el slider */
-/* Asumiendo que está en un widget HTML. Esto previene doble borde */
 #marquee-container {
-   /* TÉCNICA FULL WIDTH */
+   /* FÓRMULA MATEMÁTICA PARA FULL WIDTH */
    width: 100vw;
-   position: relative;
-   left: 50%;
-   right: 50%;
-   margin-left: -50vw;
-   margin-right: -50vw;
+   margin-left: calc(50% - 50vw);
+   margin-right: calc(50% - 50vw);
    max-width: none !important;
    
    overflow: hidden;
@@ -135,22 +132,18 @@ img { max-width: 100%; height: auto; border: 0; }
    
    border-top: 2px solid #8b0000;
    border-bottom: 2px solid #8b0000;
-   background: rgba(5,5,5,0.95);
+   background: rgba(5,5,5,0.95) !important;
    
    padding: 15px 0;
-   box-shadow: 0 0 25px #000;
+   box-shadow: 0 0 30px #000;
+   position: relative;
    z-index: 8;
 }
 
+/* Sombras laterales para suavizar la entrada/salida */
 #marquee-container::before,
 #marquee-container::after {
-   content: "";
-   position: absolute;
-   top: 0;
-   width: 150px;
-   height: 100%;
-   z-index: 2;
-   pointer-events: none;
+   content: ""; position: absolute; top: 0; width: 150px; height: 100%; z-index: 2; pointer-events: none;
 }
 #marquee-container::before { left: 0; background: linear-gradient(to right, #050505, transparent); }
 #marquee-container::after { right: 0; background: linear-gradient(to left, #050505, transparent); }
@@ -179,15 +172,20 @@ img { max-width: 100%; height: auto; border: 0; }
 
 
 /* ======================================================
-   ESTRUCTURA Y WIDGETS (SIDEBAR Y MAIN)
+   ESTRUCTURA Y WIDGETS
    ====================================================== */
 
 .sidebar-left { width: 20%; flex-shrink: 0; z-index: 5; }
 .main-column { width: 50%; flex-grow: 1; z-index: 1; }
 .sidebar-right { width: 23%; flex-shrink: 0; z-index: 5; }
 
-/* WIDGETS COMUNES (Solo estos tendrán el cuadro) */
-.widget {
+/* TRUCO MAESTRO:
+   Solo aplicamos el "cuadro" (borde, fondo, padding) a los widgets 
+   que están DENTRO de las barras laterales.
+   Esto libera automáticamente al Header, Slider y Menú de tener doble borde.
+*/
+.sidebar-left .widget, 
+.sidebar-right .widget {
   background: rgba(5,5,5,0.92);
   border: 2px solid #700000;
   margin-bottom: 35px;
@@ -198,19 +196,14 @@ img { max-width: 100%; height: auto; border: 0; }
   box-sizing: border-box;
 }
 
-/* IMPORTANTE: Excluir explícitamente Header y Slider de la clase .widget si Blogger la aplica */
-#Header1, .header-outer, #marquee-container {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
+/* Efecto hover solo para widgets laterales */
+.sidebar-left .widget:hover, 
+.sidebar-right .widget:hover { 
+  border-color: #ff0000; 
+  box-shadow: 0 0 20px rgba(255,0,0,0.3); 
 }
-/* Re-aplicar estilos específicos al marquee y header outer */
-.header-outer { background: #050505 !important; border-top: 3px solid #8b0000; border-bottom: 3px solid #8b0000; box-shadow: 0 10px 50px rgba(0,0,0,1); }
-#marquee-container { background: rgba(5,5,5,0.95) !important; border-top: 2px solid #8b0000; border-bottom: 2px solid #8b0000; box-shadow: 0 0 25px #000; }
 
-
-.widget:hover { border-color: #ff0000; box-shadow: 0 0 20px rgba(255,0,0,0.3); }
-
+/* Títulos de widgets (Común) */
 .widget h2 {
   font-family: 'UnifrakturMaguntia', cursive;
   color: #e0e0e0; font-size: 38px; text-align: center;
@@ -219,6 +212,7 @@ img { max-width: 100%; height: auto; border: 0; }
   word-wrap: break-word;
 }
 
+/* Listas de widgets (Archivos, Etiquetas, etc.) */
 .widget ul { list-style: none; padding: 0; margin: 0; }
 .widget li { 
   border-bottom: 1px dashed #333; padding: 8px 0 8px 25px; 
@@ -261,10 +255,16 @@ h3.post-title {
   .main-wrapper { flex-direction: column; gap: 20px; }
   .sidebar-left, .main-column, .sidebar-right { width: 100% !important; margin-bottom: 20px; }
   .main-column { order: 1; } .sidebar-left { order: 2; } .sidebar-right { order: 3; }
-  .header-outer { padding: 15px 0; margin-bottom: 20px; }
+  
+  /* Ajustes Header Móvil */
+  .header-outer { padding: 15px 0; margin-bottom: 20px; margin-left: 0; margin-right: 0; width: 100%; left: 0; right: 0; }
   #header-inner { width: 95%; }
+  
+  /* Ajustes Slider Móvil */
+  #marquee-container { margin-left: 0; margin-right: 0; width: 100%; left: 0; right: 0; }
   .slide-card { width: 150px; height: 150px; margin: 0 5px; }
   #marquee-container::before, #marquee-container::after { width: 50px; }
+  
   h3.post-title { font-size: 32px; }
   .widget h2 { font-size: 28px; }
 }
