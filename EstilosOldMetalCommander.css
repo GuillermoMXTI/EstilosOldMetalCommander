@@ -1,349 +1,270 @@
 /* -----------------------------------------------
-       TEMA: OLD METAL COMMANDER (Full Width & Gothic)
-       ----------------------------------------------- */
-    
-  html {
-    background: #000 url('https://i.ibb.co/Fk8Yc3hR/Wall.jpg') no-repeat center center fixed !important;
-    background-size: cover !important;
-    width: 100%;
-    min-height: 100vh;
-  }
+   TEMA: OLD METAL COMMANDER (Full Width Fix)
+   ----------------------------------------------- */
+
+html {
+  background: #000 url('https://i.ibb.co/Fk8Yc3hR/Wall.jpg') no-repeat center center fixed !important;
+  background-size: cover !important;
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background: transparent !important;
+  color: #d0d0d0;
+  font-family: 'Spectral', serif;
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden !important; /* VITAL: Evita scroll lateral por el 100vw */
+}
+
+/* ESTILOS COMUNES */
+a { color: #a00000; text-decoration: none; transition: 0.3s; }
+a:hover { color: #ff3333; text-shadow: 0 0 10px #f00; }
+img { max-width: 100%; height: auto; border: 0; }
+
+/* CONTENEDOR PRINCIPAL */
+.content-outer {
+  max-width: 1600px;
+  margin: 0 auto;
+  /* Quitamos padding lateral aquí para que no interfiera con el full width */
+  padding: 0; 
+  box-sizing: border-box;
+}
+
+/* Padding solo para el contenido interno */
+.main-wrapper { 
+  padding: 0 20px; 
+  display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start;
+}
+
+/* ======================================================
+   HEADER - FULL WIDTH REAL
+   ====================================================== */
+
+/* 1. Resetear el Widget del Header para quitarle el borde gris/rojo por defecto */
+#Header1 {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* 2. El contenedor exterior que se estira */
+.header-outer {
+  background: #050505 !important;
   
-  body {
-    background: transparent !important;
-    color: #d0d0d0;
-    font-family: 'Spectral', serif;
-    font-size: 17px;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    overflow-x: hidden; /* VITAL: Evita el scroll horizontal por usar 100vw */
-  }
-
-  /* ESTILOS COMUNES */
-  a { color: #a00000; text-decoration: none; transition: 0.3s; }
-  a:hover { color: #ff3333; text-shadow: 0 0 10px #f00; }
-  img { max-width: 100%; height: auto; border: 0; }
-
-  /* CONTENEDOR PRINCIPAL */
-  .content-outer {
-    max-width: 1600px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box; 
-  }
-
-  /* ======================================================
-     HEADER - FULL WIDTH (De lado a lado)
-     ====================================================== */
-  .header-outer {
-    background: #050505 !important; /* Fondo sólido negro */
-    
-    /* TÉCNICA FULL WIDTH */
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    
-    padding: 30px 0;
-    margin-bottom: 40px;
-    text-align: center;
-    
-    /* Bordes y Sombras */
-    border-top: 3px solid #8b0000;
-    border-bottom: 3px solid #8b0000;
-    box-shadow: 0 10px 50px rgba(0,0,0,1);
-    z-index: 10;
-  }
-
-  #header-inner {
-    display: inline-block;
-    position: relative;
-    max-width: 1200px; /* Limita la imagen para que no sea gigante */
-    width: 95%;
-  }
-
-  #header-inner img {
-    width: 100%;
-    height: auto;
-    border: none !important;
-    outline: 2px solid #500000; 
-    outline-offset: 8px;
-    box-shadow: 
-        inset 0 0 50px rgba(0,0,0,0.9),
-        0 0 30px rgba(0,0,0,1), 
-        0 0 20px rgba(139, 0, 0, 0.3);
-    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    animation: fadeInDown 1s ease-out;
-    display: block;
-    margin: 0 auto;
-  }
+  /* FUERZA BRUTA PARA ANCHO COMPLETO */
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
   
-  #header-inner a:hover img {
-    outline-color: #ff0000 !important;
-    outline-offset: 12px;
-    transform: scale(1.02);
-    box-shadow: 
-        inset 0 0 30px rgba(0,0,0,0.8),
-        0 20px 60px rgba(0,0,0,1),
-        0 0 40px rgba(255, 0, 0, 0.6);
-  }
+  padding: 30px 0;
+  margin-bottom: 40px;
+  text-align: center;
+  
+  border-top: 3px solid #8b0000;
+  border-bottom: 3px solid #8b0000;
+  box-shadow: 0 10px 50px rgba(0,0,0,1);
+  z-index: 10;
+}
 
-  @keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-50px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+#header-inner {
+  display: inline-block;
+  position: relative;
+  max-width: 1200px;
+  width: 95%;
+}
 
-  /* ESTRUCTURA COLUMNAS */
-  .main-wrapper { display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; }
-  .sidebar-left { width: 20%; flex-shrink: 0; z-index: 5; }
-  .main-column { width: 50%; flex-grow: 1; z-index: 1; }
-  .sidebar-right { width: 23%; flex-shrink: 0; z-index: 5; }
+#header-inner img {
+  width: 100%;
+  height: auto;
+  border: none !important;
+  outline: 2px solid #500000; 
+  outline-offset: 8px;
+  box-shadow: 
+      inset 0 0 50px rgba(0,0,0,0.9),
+      0 0 30px rgba(0,0,0,1), 
+      0 0 20px rgba(139, 0, 0, 0.3);
+  transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: fadeInDown 1s ease-out;
+  display: block;
+  margin: 0 auto;
+}
 
-  /* WIDGETS GENÉRICOS */
-  .widget {
-    background: rgba(5,5,5,0.92) !important;
-    border: 2px solid #700000;
-    margin-bottom: 35px;
-    padding: 25px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.9);
-    transition: 0.3s;
-    overflow: hidden !important;
-    box-sizing: border-box;
-  }
-  .widget:hover { border-color: #ff0000; box-shadow: 0 0 20px rgba(255,0,0,0.3); }
+#header-inner a:hover img {
+  outline-color: #ff0000 !important;
+  outline-offset: 12px;
+  transform: scale(1.02);
+  box-shadow: 
+      inset 0 0 30px rgba(0,0,0,0.8),
+      0 20px 60px rgba(0,0,0,1),
+      0 0 40px rgba(255, 0, 0, 0.6);
+}
 
-  .widget h2 {
-    font-family: 'UnifrakturMaguntia', cursive;
-    color: #e0e0e0; font-size: 38px; text-align: center;
-    border-bottom: 2px solid #8b0000; margin-bottom: 25px;
-    text-shadow: 3px 3px 5px #000;
-    word-wrap: break-word;
-  }
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-50px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  .widget ul { list-style: none; padding: 0; margin: 0; }
-  .widget li { 
-    border-bottom: 1px dashed #333; padding: 8px 0 8px 25px; 
-    font-size: 17px; position: relative; transition: 0.2s;
-  }
-  .widget li:hover { transform: translateX(5px); background: linear-gradient(90deg, #220000, transparent); }
-  .widget li::before { content: '\2022'; color: #8b0000; position: absolute; left: 0; top: 11px; font-size: 20px; }
-  .widget li a { color: #bbb; display: block; }
-  .widget li a:hover { color: #fff; }
-  .widget li span { display: none !important; }
+/* ======================================================
+   SLIDER MARQUEE - FULL WIDTH REAL
+   ====================================================== */
 
-  /* BUSCADOR */
-  .search-container { position: relative; z-index: 100; }
-  .search-container form { display: flex; }
-  .search-container input {
-    width: 65%; background: #000; border: 1px solid #500; color: #fff;
-    padding: 10px; font-family: 'Spectral', serif;
-    min-width: 0;
-  }
-  .search-container button {
-    width: 35%; background: #700; border: 1px solid #500; color: #fff;
-    font-family: 'UnifrakturMaguntia', cursive; cursor: pointer; padding: 10px;
-  }
-    
-  /* SUGERENCIAS FLOTANTES */
-  #search-suggestions {
-    position: absolute !important;
-    background: #000 !important;
-    border: 2px solid #ff0000;
-    z-index: 9999999 !important;
-    width: 300px;
-    max-height: 400px;
-    overflow-y: auto;
-    display: none;
-    box-shadow: 0 10px 50px #000;
-  }
-  .search-suggestion-item {
-    padding: 5px; border-bottom: 1px solid #333; color: #ddd; cursor: pointer;
-    background: #050505; transition: 0.2s;
-  }
-  .search-suggestion-item:hover { background: #500; color: #fff; padding-left: 15px; }
+/* Reset para quitar el cuadro del widget que contiene el slider */
+/* Asumiendo que está en un widget HTML. Esto previene doble borde */
+#marquee-container {
+   /* TÉCNICA FULL WIDTH */
+   width: 100vw;
+   position: relative;
+   left: 50%;
+   right: 50%;
+   margin-left: -50vw;
+   margin-right: -50vw;
+   max-width: none !important;
+   
+   overflow: hidden;
+   margin-bottom: 40px;
+   
+   border-top: 2px solid #8b0000;
+   border-bottom: 2px solid #8b0000;
+   background: rgba(5,5,5,0.95);
+   
+   padding: 15px 0;
+   box-shadow: 0 0 25px #000;
+   z-index: 8;
+}
 
-  /* POSTS */
-  .post {
-    background: rgba(10,10,10,0.95); border: 2px solid #8b0000;
-    padding: 20px; margin-bottom: 30px; box-shadow: 0 0 20px #000;
-    box-sizing: border-box;
-  }
-  h3.post-title {
-    font-family: 'UnifrakturMaguntia', cursive; font-size: 48px;
-    text-align: center; border-bottom: 3px solid #8b0000; margin-bottom: 25px;
-    word-wrap: break-word;
-  }
-  .post-body img { border: 3px solid #8b0000; margin: 20px auto; display: block; max-width: 100%; height: auto; }
-  .post-footer { text-align: right; margin-top: 30px; color: #777; font-family: 'UnifrakturMaguntia', cursive; }
+#marquee-container::before,
+#marquee-container::after {
+   content: "";
+   position: absolute;
+   top: 0;
+   width: 150px;
+   height: 100%;
+   z-index: 2;
+   pointer-events: none;
+}
+#marquee-container::before { left: 0; background: linear-gradient(to right, #050505, transparent); }
+#marquee-container::after { right: 0; background: linear-gradient(to left, #050505, transparent); }
+
+.marquee-inner { display: flex; width: fit-content; animation: marqueeScroll linear infinite; }
+.marquee-content { display: flex; flex-shrink: 0; }
+
+.slide-card {
+   position: relative; width: 250px; height: 250px; margin: 0 10px;
+   border: 1px solid #333; transition: transform 0.3s; background: #000;
+   overflow: hidden; flex-shrink: 0;
+}
+.slide-card:hover { transform: scale(0.9); border-color: #f00; box-shadow: 0 0 15px #500; z-index: 10; }
+.slide-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; filter: grayscale(40%) contrast(1.2); }
+.slide-card:hover img { filter: grayscale(0%); }
+
+.slide-overlay {
+   position: absolute; bottom: 0; left: 0; width: 100%; height: 100%;
+   background: rgba(0, 0, 0, 0.6); display: flex; align-items: center; justify-content: center;
+   opacity: 0; transition: opacity 0.3s; backdrop-filter: blur(3px);
+}
+.slide-card:hover .slide-overlay { opacity: 1; }
+.slide-title { color: #fff; font-family: 'UnifrakturMaguntia', cursive; text-align: center; font-size: 20px; padding: 10px; text-shadow: 2px 2px 4px #000; }
+
+@keyframes marqueeScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
 
 /* ======================================================
-   NUEVO SLIDER MARQUEE CSS - FULL WIDTH
+   ESTRUCTURA Y WIDGETS (SIDEBAR Y MAIN)
    ====================================================== */
-#marquee-container {
-    /* TÉCNICA FULL WIDTH */
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    max-width: none !important; /* Quitamos límites */
-    
-    overflow: hidden;
-    margin-bottom: 40px;
-    
-    /* Bordes y Fondo a juego con el Header */
-    border-top: 2px solid #8b0000;
-    border-bottom: 2px solid #8b0000;
-    background: rgba(5,5,5,0.95); /* Fondo casi sólido */
-    
-    padding: 15px 0;
-    box-shadow: 0 0 25px #000;
-    z-index: 8;
+
+.sidebar-left { width: 20%; flex-shrink: 0; z-index: 5; }
+.main-column { width: 50%; flex-grow: 1; z-index: 1; }
+.sidebar-right { width: 23%; flex-shrink: 0; z-index: 5; }
+
+/* WIDGETS COMUNES (Solo estos tendrán el cuadro) */
+.widget {
+  background: rgba(5,5,5,0.92);
+  border: 2px solid #700000;
+  margin-bottom: 35px;
+  padding: 25px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.9);
+  transition: 0.3s;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
-/* Efectos de desvanecimiento a los lados */
-#marquee-container::before,
-#marquee-container::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 150px; /* Más ancho el fade para pantallas grandes */
-    height: 100%;
-    z-index: 2;
-    pointer-events: none;
+/* IMPORTANTE: Excluir explícitamente Header y Slider de la clase .widget si Blogger la aplica */
+#Header1, .header-outer, #marquee-container {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
 }
-#marquee-container::before {
-    left: 0;
-    background: linear-gradient(to right, #050505, transparent);
-}
-#marquee-container::after {
-    right: 0;
-    background: linear-gradient(to left, #050505, transparent);
-}
+/* Re-aplicar estilos específicos al marquee y header outer */
+.header-outer { background: #050505 !important; border-top: 3px solid #8b0000; border-bottom: 3px solid #8b0000; box-shadow: 0 10px 50px rgba(0,0,0,1); }
+#marquee-container { background: rgba(5,5,5,0.95) !important; border-top: 2px solid #8b0000; border-bottom: 2px solid #8b0000; box-shadow: 0 0 25px #000; }
 
-.marquee-inner {
-    display: flex;
-    width: fit-content;
-    animation: marqueeScroll linear infinite;
+
+.widget:hover { border-color: #ff0000; box-shadow: 0 0 20px rgba(255,0,0,0.3); }
+
+.widget h2 {
+  font-family: 'UnifrakturMaguntia', cursive;
+  color: #e0e0e0; font-size: 38px; text-align: center;
+  border-bottom: 2px solid #8b0000; margin-bottom: 25px;
+  text-shadow: 3px 3px 5px #000;
+  word-wrap: break-word;
 }
 
-.marquee-content {
-    display: flex;
-    flex-shrink: 0;
+.widget ul { list-style: none; padding: 0; margin: 0; }
+.widget li { 
+  border-bottom: 1px dashed #333; padding: 8px 0 8px 25px; 
+  font-size: 17px; position: relative; transition: 0.2s;
 }
+.widget li:hover { transform: translateX(5px); background: linear-gradient(90deg, #220000, transparent); }
+.widget li::before { content: '\2022'; color: #8b0000; position: absolute; left: 0; top: 11px; font-size: 20px; }
+.widget li a { color: #bbb; display: block; }
+.widget li a:hover { color: #fff; }
+.widget li span { display: none !important; }
 
-/* ESTILO CUADRADO EXACTO 250x250 */
-.slide-card {
-    position: relative;
-    width: 250px; 
-    height: 250px; 
-    margin: 0 10px;
-    border: 1px solid #333;
-    transition: transform 0.3s;
-    background: #000;
-    overflow: hidden;
-    flex-shrink: 0;
+/* POSTS */
+.post {
+  background: rgba(10,10,10,0.95); border: 2px solid #8b0000;
+  padding: 20px; margin-bottom: 30px; box-shadow: 0 0 20px #000;
+  box-sizing: border-box;
 }
-
-.slide-card:hover {
-    transform: scale(0.9); 
-    border-color: #f00;
-    box-shadow: 0 0 15px #500;
-    z-index: 10;
+h3.post-title {
+  font-family: 'UnifrakturMaguntia', cursive; font-size: 48px;
+  text-align: center; border-bottom: 3px solid #8b0000; margin-bottom: 25px;
+  word-wrap: break-word;
 }
+.post-body img { border: 3px solid #8b0000; margin: 20px auto; display: block; max-width: 100%; height: auto; }
+.post-footer { text-align: right; margin-top: 30px; color: #777; font-family: 'UnifrakturMaguntia', cursive; }
 
-.slide-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s;
-    filter: grayscale(40%) contrast(1.2);
+/* SEARCH & SUGGESTIONS */
+.search-container input { width: 65%; background: #000; border: 1px solid #500; color: #fff; padding: 10px; font-family: 'Spectral', serif; }
+.search-container button { width: 35%; background: #700; border: 1px solid #500; color: #fff; font-family: 'UnifrakturMaguntia', cursive; cursor: pointer; padding: 10px; }
+#search-suggestions { position: absolute !important; background: #000 !important; border: 2px solid #ff0000; z-index: 9999999 !important; width: 300px; max-height: 400px; overflow-y: auto; display: none; box-shadow: 0 10px 50px #000; }
+.search-suggestion-item { padding: 5px; border-bottom: 1px solid #333; color: #ddd; cursor: pointer; background: #050505; }
+.search-suggestion-item:hover { background: #500; color: #fff; padding-left: 15px; }
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .content-outer { width: 98%; }
+  .sidebar-left, .sidebar-right { width: 30%; }
+  .main-column { width: 34%; }
 }
-
-.slide-card:hover img {
-    filter: grayscale(0%);
+@media (max-width: 900px) {
+  .main-wrapper { flex-direction: column; gap: 20px; }
+  .sidebar-left, .main-column, .sidebar-right { width: 100% !important; margin-bottom: 20px; }
+  .main-column { order: 1; } .sidebar-left { order: 2; } .sidebar-right { order: 3; }
+  .header-outer { padding: 15px 0; margin-bottom: 20px; }
+  #header-inner { width: 95%; }
+  .slide-card { width: 150px; height: 150px; margin: 0 5px; }
+  #marquee-container::before, #marquee-container::after { width: 50px; }
+  h3.post-title { font-size: 32px; }
+  .widget h2 { font-size: 28px; }
 }
-
-.slide-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s;
-    backdrop-filter: blur(3px);
-}
-
-.slide-card:hover .slide-overlay {
-    opacity: 1;
-}
-
-.slide-title {
-    color: #fff;
-    font-family: 'UnifrakturMaguntia', cursive;
-    text-align: center;
-    font-size: 20px;
-    padding: 10px;
-    text-shadow: 2px 2px 4px #000;
-}
-
-@keyframes marqueeScroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-}
-
-
-  /* ======================================================
-   ZONA RESPONSIVA AVANZADA
-   ======================================================
-   */
-
-  /* Ajustes para Tablets */
-  @media (max-width: 1024px) {
-    .content-outer { padding: 15px; width: 98%; }
-    .sidebar-left, .sidebar-right { width: 30%; }
-    .main-column { width: 34%; }
-  }
-
-  /* Ajustes para Móviles */
-  @media (max-width: 900px) {
-    .main-wrapper { flex-direction: column; gap: 20px; }
-    .sidebar-left, .main-column, .sidebar-right { width: 100% !important; margin-bottom: 20px; }
-    .main-column { order: 1; }
-    .sidebar-left { order: 2; }
-    .sidebar-right { order: 3; }
-    .menu-ancient-wrapper { flex-direction: column; gap: 5px; padding: 10px; }
-    .menu-gif { display: none; }
-    
-    /* Ajustes del Header Móvil */
-    .header-outer { padding: 15px 0; margin-bottom: 20px; }
-    #header-inner { width: 95%; }
-    
-    /* Ajuste Slider Móvil */
-    .slide-card { width: 150px; height: 150px; margin: 0 5px; }
-    #marquee-container::before, #marquee-container::after { width: 50px; }
-    
-    h3.post-title { font-size: 32px; }
-    .widget h2 { font-size: 28px; }
-    
-    #notificacion-aviso { width: 90%; right: -120%; bottom: 10px; left: 5%; }
-    #notificacion-aviso.show { right: auto; left: 5%; }
-  }
-
-  @media (max-width: 600px) {
-    .content-outer { padding: 5px; }
-    .post { padding: 15px; }
-    .search-container input { width: 60%; }
-    .search-container button { width: 40%; }
-  }
